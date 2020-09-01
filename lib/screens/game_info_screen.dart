@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:drone_scorer/widgets/game_info_text_field.dart';
 import 'game_scoring_screen.dart';
 import 'package:drone_scorer/sheet_manager.dart';
+import 'package:gsheets/gsheets.dart';
 
 class GameInfoScreen extends StatelessWidget {
-
-
   GameInfoTextField matchNumberField = GameInfoTextField('Match Number');
   GameInfoTextField teamNumberField = GameInfoTextField('Team Number');
   GameInfoTextField refereeIDField = GameInfoTextField('Referee ID');
@@ -14,7 +13,6 @@ class GameInfoScreen extends StatelessWidget {
   SheetManager sheetManager;
 
   GameInfoScreen(this.sheetManager);
-
 
   @override
   Widget build(BuildContext context) {
@@ -29,21 +27,33 @@ class GameInfoScreen extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            this.matchNumberField,
-            this.teamNumberField,
-            this.refereeIDField,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: this.matchNumberField,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: this.teamNumberField,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: this.refereeIDField,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: CupertinoButton(
                 color: Colors.blue,
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    List<String> pushList = [];
-                    pushList.add(this.matchNumberField.textFieldController.text);
-                    pushList.add(this.teamNumberField.textFieldController.text);
-                    pushList.add(this.refereeIDField.textFieldController.text);
-                    return GameScoringScreen(pushList, this.sheetManager);
+                onPressed: () async {
+                  await Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return GameScoringScreen(
+                        this.sheetManager,
+                        this.matchNumberField.textFieldController.text,
+                        this.teamNumberField.textFieldController.text,
+                        this.refereeIDField.textFieldController.text);
                   }));
+                  this.matchNumberField.textFieldController.text ='';
+                  this.teamNumberField.textFieldController.text = '';
+                  this.refereeIDField.textFieldController.text = '';
                 },
                 child: Text('Start Game'),
               ),

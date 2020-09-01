@@ -6,14 +6,14 @@ import 'package:drone_scorer/game.dart';
 import 'package:drone_scorer/sheet_manager.dart';
 
 class GameScoringScreen extends StatefulWidget {
-//  List<String> gameInfoValues;
 
+  String matchNumber;
+  String teamNumber;
+  String refereeID;
 
   SheetManager sheetManager;
 
-  GameScoringScreen(this.gameInfoValues, this.sheetManager) {
-    print('game info values: ${this.gameInfoValues}');
-  }
+  GameScoringScreen(this.sheetManager, this.matchNumber, this.teamNumber, this.refereeID);
 
   @override
   _GameScoringScreenState createState() => _GameScoringScreenState();
@@ -36,13 +36,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
   @override
   void initState() {
     super.initState();
-    this.myGame = Game(
-      widget.gameInfoValues[0],
-      widget.gameInfoValues[1],
-      widget.gameInfoValues[2],
-      int.tryParse(widget.gameInfoValues[3]),
-      int.tryParse(widget.gameInfoValues[4]),
-    );
+    this.myGame = Game(widget.matchNumber, widget.teamNumber, widget.refereeID);
   }
 
   @override
@@ -87,8 +81,10 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                   flex: 1,
                   child: CupertinoButton(
                     onPressed: () {
-                      this.updateScore();
-                      this.setState(() {});
+                      this.timer.stopGame();
+                      this.setState(() {
+                        this.updateScore();
+                      });
                       print('my game: ${this.myGame.getTotalScoredPoints()}');
                     },
                     color: Colors.blue,
@@ -103,10 +99,11 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                   flex: 1,
                   child: CupertinoButton(
                     onPressed: () {
+                      this.timer.stopGame();
                       this.updateScore();
                       widget.sheetManager.addGame(this.myGame);
                       int count = 0;
-                      Navigator.of(context).popUntil((_) => count++ >= 2);
+                      Navigator.of(context).popUntil((_) => count++ >= 1);
                     },
                     color: Colors.blue,
                     padding: EdgeInsets.all(20),

@@ -3,14 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:custom_switch/custom_switch.dart';
 
 class ScoreButton extends StatefulWidget {
-
   final int possiblePoints;
   final String bodyString;
   bool isPressed = false;
 
-
   ScoreButton(this.bodyString, this.possiblePoints);
-
 
   int get scoredPoints {
     if (this.isPressed) {

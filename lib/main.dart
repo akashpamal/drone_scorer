@@ -10,10 +10,8 @@ import 'screens/game_info_screen.dart';
 void main() {
   SheetManager sheetManager = SheetManager();
 
-
   runApp(MaterialApp(home: GameInfoScreen(sheetManager)));
 }
-
 
 class Home extends StatefulWidget {
   @override
@@ -29,7 +27,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Center(child: Text('Game history will be displayed here - in development')),
+      body: Center(
+          child: Text('Game history will be displayed here - in development')),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

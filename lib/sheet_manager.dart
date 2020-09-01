@@ -9,16 +9,15 @@ class SheetManager extends StatelessWidget {
   {
   "type": "service_account",
   "project_id": "gsheets-288017",
-  "private_key_id": "c7b90b9d35a3c8d7739abcd962ff3dc72c2c93b5",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCz7vnj2KAXazLO\nzwOGF2G6vC7KEOMHufD6LcucV5nMDWnwK0oIAXWC+F41XkL2m3kz5xKoeJPIUIyH\n9csJC+j6q9CBieRsiCQMOPGmqxpOiwn3tMC4wjXnlfeyR+NJaSudaOBbF7JST6kG\nNhPYM4f3q0djHmviyIFDCxoYgDBu1QU7UC8etqpx1iOWKsbdikuxdJqQ3HS3w53k\neRu8Ao0o3js1l0Plnu00Bl1fIj7PUES6qVcDnwRsIdfOCSUz9VWOmBPgE/LWvX/W\nPBkB0u2qwprna7WfrWVGxffjq2uOCLxWMpaPN0znf4fw/mrC6Ux8AxcRv1pP3PAD\nZDMVrT/LAgMBAAECggEABcpR9lgZRsenWeplhaIo/fZiVxRWCgCc1aA1pjFXfK6N\n0zHBbyKE4pMVjQgchY0ZSGdOPWer8c1NyG5Le14LwE1ZJ2IFnMyAxHfspt1oulBV\nIMiLTybIz0wPLYiMsucUhTtDxQqtLWLs4ItK9jEqVfkIEhN/i0vChSLNUy6E4Hwi\nhlYgwygMfUL8IH2vxo2IVfZtnLZXzz6iHJcmGF9mg3lgEaHVrSkUPfSjJr0A3w+8\nC5ecLpHKp6Q4j+jDJPVxYAJ25jP0mSLqH03OJN9Vvuz5zKcrI4iYrwkyhsdOxWs9\nkiS7oh1Yaf8uRWeVv5cgwOG+JOgSIjumx1lAbhogWQKBgQDx7JA6lyBn4NmUicRa\nrhnKN+YEX12ECsnrA49Jp8CDvYjB7msn4qJhwV7Ghh2fR+qaPN+QnE1BXyRwdad2\n0d1VvqTgopBquOaDvgXp9wjEGIjGv97H9Ys5/GgZXM9bDZGu57lX7uy1oDa1QJkq\nqtJNckXVPObdtr3HNuG4HK20hQKBgQC+ZxGij3/34I6omlI9i2lbivGRFAE+aW6M\nfnBaVKcp9y6vqEqpLrbxSQjOJ0rUr/zG2w2oCSDRFCqnyN2buUxGhkoATJVHKiil\nKB8wDWbqin23T15XjE4VfGQ7/u3XXOXgtyVlH6BYeyozmq9l0stU+iRPOe7RC331\nkxdTHZa8DwKBgQDK6ruHCV/bAZQ+rNePn9xt6zj5jevoZww6HYBALX6igYWF9K7Y\ng5XkHMecCL4r7axvtoNmzlNWc7EiyuyuExVtaDzvVit/+JsRAYAAYH5vzIxc+G6q\nleAzwOyn6VrbaqQ5ao/hm7vcFAgPO6G9Ug6XezPryetzKGZCBFyLizJ/6QKBgBiv\nolCyTEQmIDjp8Tm7hohw5ksKDfM6ljOu/QApM5c0TiBGMI/o151G+9ZGr+QNgTeD\nFS0xKckR1Un1uA3Fo4cNSDDrvPsCE0z+e7SuOCa2mAAZUUEGluUgQJqqvcmLaN6O\nwFFxHUf7iAgyyQTppKU63VRMTZNa6xTY4lBLaMyvAoGBAJOZacOQAbDAkoLD09R8\nBW2jaHtCdtpnfG0w7mnCxhglIcUHBWufwXTNk5GjDEYIEo/RMNCmXWiGvaZHec3y\nEQo7qqq7dVF1W3uMe3bdpaNmFe6kv4f59DZlWuniwjLWDN4R9oOBN0xHyPivtOzU\nwvt5NKLJdjAc8Ini7ewqWYga\n-----END PRIVATE KEY-----\n",
+  "private_key_id": "b1427cc130a142b64b0eb05909d42b5176d5cdbd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCl8uGubIuOp05S\nm20fKi+KQufii8OI5cKFi+HjcQlOEVVGrbpr30FC5JAZysn0i2G52Oejq7e2Ax6B\nPkZGUTpYnfBv0M75hbYTYr88WiSKvWtynCz1quMWTtSSEiENHGiNehw2kzd2b2Zw\nha/XT8qoUOr4snNXNMmGejj9HDBV7an6MHkPfkXcPMsouibZ7+zHpIVXS0Z2uEf+\nKJ02GMVSuB0Ji5vunVFT5ACNs5zi8SUJ3vZ7L1wcTz+2mpDEogze46/8GrESKpD0\n1Rd1hHlNQaOO0kckbHOHcHm6Tmo/pYuLISkX+C+ehIrQvCaSaJYv46yNZWVneDnN\nGbs32y/RAgMBAAECggEAUZjOGEZeDqw8SkkLTF4hVxIT0+SWJjuXPLQtw3his2S5\nchHdTspNXBdntY7tY5WfXVMGfwdhwxjgiHs28b9h+Y3bWhepla6F+x08W/AU9LUz\n3nxlbPx0QZVMV3CbmMdFr38B3WHgzRb0n1JUxoGA6+cxykxwg0o85yc021vfdngk\nnTbhG994Rp30hOvX9V560RNNIgrhRGjEq5g9QloyTQ4Sb6sb6WB333nuej1dbfuY\nXtC/efgqKj9Et9zl2ChoB4SjRyzneDGxB4xeJ8blPXaGep0n/Ncs4jFn5aymZ3iD\n9nSpB+QTbUpvjGeroFfnlPTg1Pvsnxv3xl6qs0/5mwKBgQDlJYHYuqovO7LHVjzd\nbj04BPmLbL+ozIyRDm0xzpxYcFUR7H7F+icyVnf8b6yg/0iTY5mqosPVQYXQ92OG\nURoyh0nCOIOsGpwfCgNdUYkEETc5WkiaJ+NUWGCWD+anJHl/8E3cXHNCD/HcDuVo\n5B4ITvtOOpDBImJit5AvxkpS4wKBgQC5ZWowFrtC6WbvmeAsi6qR10lJtKbAQ4C0\nqFRrWRBGXE78+YjxxZplhQIej/kfswP6EdPBJxVBRH1j7wnfPvcnkKXRqKApf3k9\nbnr6Y38K6+ii5PeKRyqvwS/E2WUxCLG/c4cxmzyj+28xYtHX0kI2nKSW842SSaoa\n3Kcf5voMuwKBgH0Za/kpd23P9rty7kmpPIzP0nj2xu/dtEQhDyYo+RwjP55IcbGd\n7zZBFMJhKWq/1Bx7PNJ2h9luKyM5XEFhF59MUs1Q0znrUR509f9FWzs4NuD91DMs\n4aQTl691QOQxOo/JXoiWhGolkFImY8JO/8JjdDlyKcL3BaWFN5eNdtgnAoGAPX3G\np6aSe9IAY04tTXkRnQfD9h9mA3UgNktynJxQypWJWVzGsDIzUKK6HjrwjTQKCKJr\nErCM2zYFROUe6B3xSf0vEogUf08ZfmergGsJ0yyF36mD9Sg/n0W7O1ZDuuzAT9jY\nqXpstZMKwV2ebi/96DEyYiLr/O5T7k7rW6h3nUsCgYEA4KwBOx/uqOv65Sr5JUGs\nXAX7gmXZk9PoiH+pkp0tURJ+45Fuu2fG78NifCJ+DU+BikVAEA1dLd0oJChhx5Ta\nFTcO0e25kBBlO3P/YvzRUyiLCgrPqOFoAKWxOlBQDCe/pSj/ZdoB5gU67c+0o72D\nLmj/3BTEPud9ZuOQTg1LXUY=\n-----END PRIVATE KEY-----\n",
   "client_email": "gsheets@gsheets-288017.iam.gserviceaccount.com",
-  "client_id": "105299539832981888941",
+  "client_id": "101543282645222022271",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gsheets%40gsheets-288017.iam.gserviceaccount.com"
 }
-
   ''';
 
   // your spreadsheet id
@@ -55,10 +54,46 @@ class SheetManager extends StatelessWidget {
 //    List<Cell> cellsRow = await sheet.cells.row(2);
 //    cellsRow = cellsRow.sublist(14);
 //    List<String> cellsRowString = cellsRow.map((e) => e.toString()).toList();
-    List<String> pushList = game.getSheetsFirstHalfRowContentList() + ['', '', ''] + game.getSheetsSecondHalfRowContentList();
-    
+    List<List<String>> allRows = await this.sheet.values.allRows();
+    int indexOfNewRow = allRows.length;
+    indexOfNewRow ++;
+
+    List<String> pushList = [];
+    pushList += game.getMatchInfoRowContentList();
+    pushList.add('');
+    pushList.add('=Sum(T$indexOfNewRow:AA$indexOfNewRow)');
+    pushList.add(''); // notes column, empty for now
+    pushList.add('');
+    pushList += game.getSheetsScoredElementsRowContentList();
+    pushList.add('=IF(COUNTIF(K$indexOfNewRow:Q$indexOfNewRow, "Y") = 7,"Y","N")');
+
+    print('pushList is $pushList');
+    pushList.add('');
+
+    pushList.add('=if(K$indexOfNewRow="Y",100,0)');
+    pushList.add('=if(L$indexOfNewRow="Y",200,0)');
+    pushList.add('=if(N$indexOfNewRow="Y",100,0)');
+    pushList.add('=if(M$indexOfNewRow="Y",200,0)');
+    pushList.add('=if(O$indexOfNewRow="Y",100,0)');
+    pushList.add('=if(P$indexOfNewRow="Y",200,0)');
+    pushList.add('=if(Q$indexOfNewRow="Y",200,0)');
+    pushList.add('=if(R$indexOfNewRow="Y",200,0)');
+
     await this.sheet.values.appendRow(pushList);
   }
+
+  //      List<String> lastRow = await this.sheetManager.sheet.values.lastRow();
+//      print('last row: ${lastRow}');
+//    this.sheetManager.sheet.values.appendRow(['=SUM(T2:AA2)']);
+//      List<Cell> secondRow = await this.sheetManager.sheet.cells.row(2);
+//      this.sheetManager.sheet.values
+//      print('second row to string: ${secondRow[6].toString()}');
+//      final firstColumn = ['0', '1', '2', '3', '4'];
+//      await this
+//          .sheetManager
+//          .sheet
+//          .values
+//          .insertColumn(1, firstColumn, fromRow: 2);
 
   @override
   Widget build(BuildContext context) {
