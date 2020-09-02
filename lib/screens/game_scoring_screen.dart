@@ -22,12 +22,12 @@ class GameScoringScreen extends StatefulWidget {
 class _GameScoringScreenState extends State<GameScoringScreen> {
   CountdownTimer timer = CountdownTimer();
   List<ScoreButton> scoreButtons = [
-    ScoreButton('Hoop 1', 100),
-    ScoreButton('Tile 1', 200),
-    ScoreButton('Hoop 2', 100),
-    ScoreButton('Tile 2', 200),
-    ScoreButton('Hoop 3', 100),
-    ScoreButton('Tile 3', 200),
+    ScoreButton('Fly north through hoop 1', 100),
+    ScoreButton('Land on tile 1', 200),
+    ScoreButton('Fly north through hoop 2', 100),
+    ScoreButton('Land on tile 2', 200),
+    ScoreButton('Fly north through hoop 3', 100),
+    ScoreButton('Land on tile 3', 200),
     ScoreButton('Land on start', 200),
   ];
 

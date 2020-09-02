@@ -29,15 +29,15 @@ class GameInfoScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
+              child: this.refereeIDField,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: this.matchNumberField,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: this.teamNumberField,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: this.refereeIDField,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -53,7 +53,6 @@ class GameInfoScreen extends StatelessWidget {
                   }));
                   this.matchNumberField.textFieldController.text ='';
                   this.teamNumberField.textFieldController.text = '';
-                  this.refereeIDField.textFieldController.text = '';
                 },
                 child: Text('Start Game'),
               ),
