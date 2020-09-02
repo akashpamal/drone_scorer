@@ -48,15 +48,11 @@ class SheetManager extends StatelessWidget {
     this.sheet ??= await ss.addWorksheet('example');
   }
 
-  void addGame(Game game) async {
-//    await this.sheet.insertRow(2);
-//    await this.sheet.values.insertRow(2, game.getSheetsRowContentList());
-//    List<Cell> cellsRow = await sheet.cells.row(2);
-//    cellsRow = cellsRow.sublist(14);
-//    List<String> cellsRowString = cellsRow.map((e) => e.toString()).toList();
+  void startEntry(Game game) async {
     List<List<String>> allRows = await this.sheet.values.allRows();
+
     int indexOfNewRow = allRows.length;
-    indexOfNewRow ++;
+    indexOfNewRow++;
 
     List<String> pushList = [];
     pushList += game.getMatchInfoRowContentList();
@@ -64,22 +60,49 @@ class SheetManager extends StatelessWidget {
     pushList.add('=Sum(T$indexOfNewRow:AA$indexOfNewRow)');
     pushList.add(''); // notes column, empty for now
     pushList.add('');
+
+    await this.sheet.values.appendRow(pushList);
+  }
+
+  void addGame(Game game) async {
+//    await this.sheet.insertRow(2);
+//    await this.sheet.values.insertRow(2, game.getSheetsRowContentList());
+//    List<Cell> cellsRow = await sheet.cells.row(2);
+//    cellsRow = cellsRow.sublist(14);
+//    List<String> cellsRowString = cellsRow.map((e) => e.toString()).toList();
+    List<List<String>> allRows = await this.sheet.values.allRows();
+    int indexOfNewRow = -1;
+    for (int i = 0; i < allRows.length; i++) {
+      List<String> row = allRows[i];
+      if (row[0] == game.refereeID &&
+          row[3] == game.teamNumber &&
+          row[4] == game.matchNumber) {
+        indexOfNewRow = i;
+        break;
+      }
+    }
+    indexOfNewRow += 1;
+    print('index of active game is $indexOfNewRow');
+
+    List<String> pushList = [];
     pushList += game.getSheetsScoredElementsRowContentList();
-    pushList.add('=IF(COUNTIF(K$indexOfNewRow:Q$indexOfNewRow, "Y") = 7,"Y","N")');
+    pushList
+        .add('=IF(COUNTIF(K$indexOfNewRow:Q$indexOfNewRow, "Y") = 7,"Y","N")');
 
     print('pushList is $pushList');
     pushList.add('');
 
     pushList.add('=if(K$indexOfNewRow="Y",100,0)');
     pushList.add('=if(L$indexOfNewRow="Y",200,0)');
-    pushList.add('=if(N$indexOfNewRow="Y",100,0)');
-    pushList.add('=if(M$indexOfNewRow="Y",200,0)');
+    pushList.add('=if(M$indexOfNewRow="Y",100,0)');
+    pushList.add('=if(N$indexOfNewRow="Y",200,0)');
     pushList.add('=if(O$indexOfNewRow="Y",100,0)');
     pushList.add('=if(P$indexOfNewRow="Y",200,0)');
     pushList.add('=if(Q$indexOfNewRow="Y",200,0)');
     pushList.add('=if(R$indexOfNewRow="Y",200,0)');
 
-    await this.sheet.values.appendRow(pushList);
+//    await this.sheet.values.appendRow(pushList);
+    await this.sheet.values.insertRow(indexOfNewRow, pushList, fromColumn: 10);
   }
 
   //      List<String> lastRow = await this.sheetManager.sheet.values.lastRow();

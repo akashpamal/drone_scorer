@@ -10,7 +10,7 @@ class Game {
 
   List<bool> scoredElements;
 
-  Game(this.matchNumber, this.teamNumber, this.refereeID) {
+  Game(this.refereeID, this.matchNumber, this.teamNumber) {
     this.scoredElements = POINT_VALUES.map((e) => false).toList();
   }
 

@@ -6,14 +6,11 @@ import 'package:drone_scorer/game.dart';
 import 'package:drone_scorer/sheet_manager.dart';
 
 class GameScoringScreen extends StatefulWidget {
-
-  String matchNumber;
-  String teamNumber;
-  String refereeID;
+  Game myGame;
 
   SheetManager sheetManager;
 
-  GameScoringScreen(this.sheetManager, this.matchNumber, this.teamNumber, this.refereeID);
+  GameScoringScreen(this.sheetManager, this.myGame);
 
   @override
   _GameScoringScreenState createState() => _GameScoringScreenState();
@@ -31,12 +28,9 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
     ScoreButton('Land on start', 200),
   ];
 
-  Game myGame;
-
   @override
   void initState() {
     super.initState();
-    this.myGame = Game(widget.matchNumber, widget.teamNumber, widget.refereeID);
   }
 
   @override
@@ -49,8 +43,8 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
             padding: const EdgeInsets.fromLTRB(0, 4, 8, 0),
             child: Column(
               children: [
-                Text('Match #' + this.myGame.matchNumber.toString()),
-                Text('Team #' + this.myGame.teamNumber.toString()),
+                Text('Match #' + widget.myGame.matchNumber.toString()),
+                Text('Team #' + widget.myGame.teamNumber.toString()),
               ],
             ),
           ),
@@ -67,7 +61,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Total Score: ' + this.myGame.getTotalScoredPoints().toString(),
+              'Total Score: ' + widget.myGame.getTotalScoredPoints().toString(),
               style: TextStyle(fontSize: 18),
             ),
           ),
@@ -85,7 +79,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                       this.setState(() {
                         this.updateScore();
                       });
-                      print('my game: ${this.myGame.getTotalScoredPoints()}');
+                      print('my game: ${widget.myGame.getTotalScoredPoints()}');
                     },
                     color: Colors.blue,
                     padding: EdgeInsets.all(20),
@@ -101,9 +95,9 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                     onPressed: () {
                       this.timer.stopGame();
                       this.updateScore();
-                      widget.sheetManager.addGame(this.myGame);
+                      widget.sheetManager.addGame(widget.myGame);
                       int count = 0;
-                      Navigator.of(context).popUntil((_) => count++ >= 1);
+//                      Navigator.of(context).popUntil((_) => count++ >= 1);
                     },
                     color: Colors.blue,
                     padding: EdgeInsets.all(20),
@@ -120,8 +114,8 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
 
   void updateScore() {
     print('update score method from game scoring screen');
-    this.myGame.scoredElements =
+    widget.myGame.scoredElements =
         this.scoreButtons.map((button) => button.isPressed).toList();
-    this.myGame.secondsRemaining = this.timer.timeRemaining;
+    widget.myGame.secondsRemaining = this.timer.timeRemaining;
   }
 }
