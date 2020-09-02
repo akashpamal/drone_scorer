@@ -82,6 +82,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                       print('my game: ${widget.myGame.getTotalScoredPoints()}');
                     },
                     color: Colors.blue,
+//                    color: Theme.of(context).buttonColor,
                     padding: EdgeInsets.all(20),
                     child: Text(
                       'End Game',
@@ -97,9 +98,10 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                       this.updateScore();
                       widget.sheetManager.addGame(widget.myGame);
                       int count = 0;
-//                      Navigator.of(context).popUntil((_) => count++ >= 1);
+                      Navigator.of(context).popUntil((_) => count++ >= 2);
                     },
                     color: Colors.blue,
+//                    color: Theme.of(context).buttonColor,
                     padding: EdgeInsets.all(20),
                     child: Text('Save & Return Home'),
                   ),

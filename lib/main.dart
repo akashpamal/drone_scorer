@@ -10,9 +10,22 @@ import 'screens/game_info_screen.dart';
 void main() {
   SheetManager sheetManager = SheetManager();
 
-  runApp(MaterialApp(home: GameInfoScreen(sheetManager)));
+  runApp(
+    MaterialApp(
+      home: GameInfoScreen(sheetManager),
+//      theme: theme1(),
+    ),
+  );
 }
 
+ThemeData theme1() {
+  return ThemeData(
+    primaryColor: Colors.red,
+    buttonColor: Colors.pink,
+  );
+}
+
+//238, 20, 44
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();

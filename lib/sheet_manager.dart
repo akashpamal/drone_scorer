@@ -56,10 +56,6 @@ class SheetManager extends StatelessWidget {
 
     List<String> pushList = [];
     pushList += game.getMatchInfoRowContentList();
-    pushList.add('');
-    pushList.add('=Sum(T$indexOfNewRow:AA$indexOfNewRow)');
-    pushList.add(''); // notes column, empty for now
-    pushList.add('');
 
     await this.sheet.values.appendRow(pushList);
   }
@@ -85,6 +81,10 @@ class SheetManager extends StatelessWidget {
     print('index of active game is $indexOfNewRow');
 
     List<String> pushList = [];
+    pushList.add('=Sum(T$indexOfNewRow:AA$indexOfNewRow)');
+    pushList.add(''); // notes column, empty for now
+    pushList.add('');
+
     pushList += game.getSheetsScoredElementsRowContentList();
     pushList
         .add('=IF(COUNTIF(K$indexOfNewRow:Q$indexOfNewRow, "Y") = 7,"Y","N")');
@@ -102,7 +102,7 @@ class SheetManager extends StatelessWidget {
     pushList.add('=if(R$indexOfNewRow="Y",200,0)');
 
 //    await this.sheet.values.appendRow(pushList);
-    await this.sheet.values.insertRow(indexOfNewRow, pushList, fromColumn: 10);
+    await this.sheet.values.insertRow(indexOfNewRow, pushList, fromColumn: 7);
   }
 
   //      List<String> lastRow = await this.sheetManager.sheet.values.lastRow();

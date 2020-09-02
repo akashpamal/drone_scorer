@@ -7,14 +7,23 @@ import 'package:gsheets/gsheets.dart';
 import 'game_ready_screen.dart';
 import 'package:drone_scorer/game.dart';
 
-class GameInfoScreen extends StatelessWidget {
-  GameInfoTextField matchNumberField = GameInfoTextField('Match Number');
-  GameInfoTextField teamNumberField = GameInfoTextField('Team Number');
-  GameInfoTextField refereeIDField = GameInfoTextField('Referee ID');
-
+class GameInfoScreen extends StatefulWidget {
   SheetManager sheetManager;
 
   GameInfoScreen(this.sheetManager);
+
+  @override
+  _GameInfoScreenState createState() => _GameInfoScreenState();
+}
+
+class _GameInfoScreenState extends State<GameInfoScreen> {
+  GameInfoTextField matchNumberField = GameInfoTextField('Match Number');
+
+  GameInfoTextField teamNumberField = GameInfoTextField('Team Number');
+
+  GameInfoTextField refereeIDField = GameInfoTextField('Referee ID');
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,45 +32,58 @@ class GameInfoScreen extends StatelessWidget {
         title: Text('New Game'),
       ),
       body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: this.refereeIDField,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: this.matchNumberField,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: this.teamNumberField,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CupertinoButton(
-                color: Colors.blue,
-                onPressed: () async {
-                  Game newGame = Game(
-                    this.refereeIDField.textFieldController.text,
-                    this.matchNumberField.textFieldController.text,
-                    this.teamNumberField.textFieldController.text,
-                  );
-                  this.sheetManager.startEntry(newGame);
-                  await Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
-                    return GameReadyScreen(this.sheetManager, newGame);
-                  }));
-                  this.matchNumberField.textFieldController.text = '';
-                  this.teamNumberField.textFieldController.text = '';
-                },
-                child: Text("I'm Ready"),
+        child: Form(
+          key: this._formKey,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20.0,
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: this.refereeIDField,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: this.matchNumberField,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: this.teamNumberField,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CupertinoButton(
+                  color: Colors.blue,
+//                  color: Theme.of(context).buttonColor,
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      String refereeIDText =
+                          this.refereeIDField.textFieldController.text;
+                      String matchNumberText =
+                          this.matchNumberField.textFieldController.text;
+                      String teamNumberText =
+                          this.teamNumberField.textFieldController.text;
+                      Game newGame = Game(
+                        refereeIDText,
+                        matchNumberText,
+                        teamNumberText,
+                      );
+                      this.widget.sheetManager.startEntry(newGame);
+                      await Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return GameReadyScreen(this.widget.sheetManager, newGame);
+                      }));
+                      this.matchNumberField.textFieldController.text = '';
+                      this.teamNumberField.textFieldController.text = '';
+                    }
+//                  if (this.refereeIDField.)
+                  },
+                  child: Text("I'm Ready"),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

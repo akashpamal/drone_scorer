@@ -39,6 +39,7 @@ class GameReadyScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: CupertinoButton(
                 color: Colors.blue,
+//                color: Theme.of(context).buttonColor,
                 onPressed: () async {
                   await Navigator.push(context,
                       MaterialPageRoute(builder: (context) {
