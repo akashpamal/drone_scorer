@@ -17,11 +17,14 @@ class GameInfoScreen extends StatefulWidget {
 }
 
 class _GameInfoScreenState extends State<GameInfoScreen> {
-  GameInfoTextField matchNumberField = GameInfoTextField('Match Number');
+  GameInfoTextField refereeIDField =
+      GameInfoTextField('Referee ID', TextInputType.text);
 
-  GameInfoTextField teamNumberField = GameInfoTextField('Team Number');
+  GameInfoTextField matchNumberField =
+      GameInfoTextField('Match Number', TextInputType.number);
 
-  GameInfoTextField refereeIDField = GameInfoTextField('Referee ID');
+  GameInfoTextField teamNumberField =
+      GameInfoTextField('Team Number', TextInputType.number);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -30,11 +33,15 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('New Game'),
+//        backgroundColor: Colors.blue,
       ),
+//      CupertinoNavigationBar(
+//        middle: Text('New Game'),
+//      ),
       body: Center(
         child: Form(
           key: this._formKey,
-          child: Column(
+          child: ListView(
             children: [
               SizedBox(
                 height: 20.0,
@@ -51,6 +58,7 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: this.teamNumberField,
               ),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CupertinoButton(
@@ -72,7 +80,8 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
                       this.widget.sheetManager.startEntry(newGame);
                       await Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return GameReadyScreen(this.widget.sheetManager, newGame);
+                        return GameReadyScreen(
+                            this.widget.sheetManager, newGame);
                       }));
                       this.matchNumberField.textFieldController.text = '';
                       this.teamNumberField.textFieldController.text = '';

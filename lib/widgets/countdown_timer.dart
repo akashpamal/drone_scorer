@@ -54,4 +54,9 @@ class _CountdownTimerState extends State<CountdownTimer> {
       ),
     );
   }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return widget.timeRemaining.toString();
+  }
 }

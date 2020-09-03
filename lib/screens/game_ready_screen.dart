@@ -15,13 +15,17 @@ class GameReadyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Game Ready'),
+        title: Text('Game Info'),
       ),
+//      CupertinoNavigationBar(
+//        middle: Text('Game Ready'),
+//        previousPageTitle: 'New Game',
+//      ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 20.0),
+            SizedBox(height: 40.0),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: GameInfoTextDisplay('Referee ID', this.myGame.refereeID),

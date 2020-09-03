@@ -42,10 +42,10 @@ class SheetManager extends StatelessWidget {
     final ss = await gsheets.spreadsheet(_spreadsheetId);
 
     // get worksheet by its title
-    this.sheet = await ss.worksheetByTitle('example');
+    this.sheet = await ss.worksheetByTitle('Scores');
 
     // create worksheet if it does not exist yet
-    this.sheet ??= await ss.addWorksheet('example');
+    this.sheet ??= await ss.addWorksheet('Scores');
   }
 
   void startEntry(Game game) async {

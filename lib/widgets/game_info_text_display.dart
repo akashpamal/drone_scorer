@@ -11,7 +11,7 @@ class GameInfoTextDisplay extends StatelessWidget {
     return Container(
       child: Text(
         '${this.labelText}: ${this.valueText}',
-        style: TextStyle(fontSize: 18.0),
+        style: TextStyle(fontSize: 18.0, color: Colors.white),
       ),
     );
   }

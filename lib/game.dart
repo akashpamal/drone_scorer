@@ -6,7 +6,7 @@ class Game {
   String teamNumber = '';
   String refereeID = '';
 
-  int secondsRemaining;
+  String secondsRemaining;
 
   List<bool> scoredElements;
 
