@@ -38,6 +38,7 @@ class _ScoreButtonState extends State<ScoreButton> {
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
       trailing: CupertinoSwitch(
+        trackColor: Colors.grey,
         value: widget.isPressed,
         onChanged: (value) {
           this.rebuildScoreScreenWidget((){

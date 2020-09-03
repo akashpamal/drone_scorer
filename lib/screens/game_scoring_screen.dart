@@ -77,7 +77,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                 return this.scoreButtons[index];
               }),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(13.0),
             child: TextField(
               controller: this.timeFieldController,
               style: TextStyle(color: Colors.white),
@@ -101,17 +101,20 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
 //              style: TextStyle(fontSize: 18, color: Colors.white),
 //            ),
 //          ),
-          CupertinoButton(
-            onPressed: () {
-              this.updateScore();
-              widget.sheetManager.addGame(widget.myGame);
-              int count = 0;
-              Navigator.of(context).popUntil((_) => count++ >= 2);
-            },
-            color: Colors.blue,
+          Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: CupertinoButton(
+              onPressed: () {
+                this.updateScore();
+                widget.sheetManager.addGame(widget.myGame);
+                int count = 0;
+                Navigator.of(context).popUntil((_) => count++ >= 2);
+              },
+              color: Colors.blue,
 //                    color: Theme.of(context).buttonColor,
-            padding: EdgeInsets.all(20),
-            child: Text('Save & Return Home'),
+              padding: EdgeInsets.all(20),
+              child: Text('Save & Return Home'),
+            ),
           ),
 //          Padding(
 //            padding: const EdgeInsets.all(8.0),
