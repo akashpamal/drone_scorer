@@ -68,7 +68,7 @@ class SheetManager extends StatelessWidget {
 //    List<String> cellsRowString = cellsRow.map((e) => e.toString()).toList();
     List<List<String>> allRows = await this.sheet.values.allRows();
     int indexOfNewRow = -1;
-    for (int i = 0; i < allRows.length; i++) {
+    for (int i = allRows.length - 1; i >= 0; i--) {
       List<String> row = allRows[i];
       if (row[0] == game.refereeID &&
           row[3] == game.teamNumber &&

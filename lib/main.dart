@@ -19,7 +19,6 @@ void main() {
 //      theme: ThemeData(),
 //      darkTheme: ThemeData.dark(),
       theme: theme1(),
-      debugShowCheckedModeBanner: false,
     ),
   );
 }

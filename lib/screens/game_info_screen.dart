@@ -21,10 +21,13 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
       GameInfoTextField('Referee ID', TextInputType.text);
 
   GameInfoTextField matchNumberField =
-      GameInfoTextField('Match Number', TextInputType.number);
+      GameInfoTextField('Round Number', TextInputType.number);
 
   GameInfoTextField teamNumberField =
       GameInfoTextField('Team Number', TextInputType.number);
+
+  GameInfoTextField coachNameField =
+      GameInfoTextField('Coach Name', TextInputType.text);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -52,11 +55,15 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
+                child: this.teamNumberField,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: this.matchNumberField,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: this.teamNumberField,
+                child: this.coachNameField,
               ),
               SizedBox(height: 20),
               Padding(
@@ -72,11 +79,10 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
                           this.matchNumberField.textFieldController.text;
                       String teamNumberText =
                           this.teamNumberField.textFieldController.text;
-                      Game newGame = Game(
-                        refereeIDText,
-                        matchNumberText,
-                        teamNumberText,
-                      );
+                      String coachNameText =
+                          this.coachNameField.textFieldController.text;
+                      Game newGame = Game(refereeIDText, matchNumberText,
+                          teamNumberText, coachNameText);
                       this.widget.sheetManager.startEntry(newGame);
                       await Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
@@ -85,6 +91,7 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
                       }));
                       this.matchNumberField.textFieldController.text = '';
                       this.teamNumberField.textFieldController.text = '';
+                      this.coachNameField.textFieldController.text = '';
                     }
 //                  if (this.refereeIDField.)
                   },

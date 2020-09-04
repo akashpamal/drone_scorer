@@ -32,12 +32,12 @@ class GameReadyScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child:
-                  GameInfoTextDisplay('Match Number', this.myGame.matchNumber),
+              child: GameInfoTextDisplay('Team Number', this.myGame.teamNumber),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: GameInfoTextDisplay('Team Number', this.myGame.teamNumber),
+              child:
+                  GameInfoTextDisplay('Round Number', this.myGame.matchNumber),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

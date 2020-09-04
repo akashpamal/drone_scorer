@@ -5,12 +5,13 @@ class Game {
   String matchNumber = '';
   String teamNumber = '';
   String refereeID = '';
+  String coachName = '';
 
   String secondsRemaining;
 
   List<bool> scoredElements;
 
-  Game(this.refereeID, this.matchNumber, this.teamNumber) {
+  Game(this.refereeID, this.matchNumber, this.teamNumber, this.coachName) {
     this.scoredElements = POINT_VALUES.map((e) => false).toList();
   }
 
@@ -52,11 +53,11 @@ class Game {
 
   List<String> getMatchInfoRowContentList() {
     List<String> returnList = [];
-    returnList.add(this.refereeID.toString());
+    returnList.add(this.refereeID);
     returnList.add('');
-    returnList.add('');
-    returnList.add(this.teamNumber.toString());
-    returnList.add(this.matchNumber.toString());
+    returnList.add(this.coachName);
+    returnList.add(this.teamNumber);
+    returnList.add(this.matchNumber);
     return returnList;
   }
 }

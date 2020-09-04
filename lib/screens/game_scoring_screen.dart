@@ -77,7 +77,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
                 return this.scoreButtons[index];
               }),
           Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: this.timeFieldController,
               style: TextStyle(color: Colors.white),
@@ -102,7 +102,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
 //            ),
 //          ),
           Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.all(16.0),
             child: CupertinoButton(
               onPressed: () {
                 this.updateScore();
