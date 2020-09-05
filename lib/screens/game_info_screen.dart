@@ -1,3 +1,4 @@
+import 'package:drone_scorer/screens/authentication_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:drone_scorer/widgets/game_info_text_field.dart';
@@ -8,7 +9,7 @@ import 'game_ready_screen.dart';
 import 'package:drone_scorer/game.dart';
 
 class GameInfoScreen extends StatefulWidget {
-  SheetManager sheetManager;
+  SheetManager sheetManager = SheetManager();
 
   GameInfoScreen(this.sheetManager);
 
@@ -36,6 +37,19 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('New Game'),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return AuthorizationScreen(widget.sheetManager);
+              }));
+            },
+            child: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+          ),
+        ],
 //        backgroundColor: Colors.blue,
       ),
 //      CupertinoNavigationBar(
@@ -59,11 +73,11 @@ class _GameInfoScreenState extends State<GameInfoScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: this.matchNumberField,
+                child: this.coachNameField,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: this.coachNameField,
+                child: this.matchNumberField,
               ),
               SizedBox(height: 20),
               Padding(

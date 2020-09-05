@@ -57,7 +57,7 @@ class _GameScoringScreenState extends State<GameScoringScreen> {
             padding: const EdgeInsets.fromLTRB(0, 4, 8, 0),
             child: Column(
               children: [
-                Text('Match #' + widget.myGame.matchNumber.toString()),
+                Text('Round #' + widget.myGame.matchNumber.toString()),
                 Text('Team #' + widget.myGame.teamNumber.toString()),
               ],
             ),

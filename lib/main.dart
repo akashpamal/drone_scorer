@@ -29,6 +29,14 @@ ThemeData theme1() {
     scaffoldBackgroundColor: Colors.black,
     primaryColor: Colors.blue,
     hintColor: Colors.blue,
+    textTheme: TextTheme(
+      bodyText1: TextStyle(),
+      bodyText2: TextStyle(),
+    ).apply(bodyColor: Colors.white, displayColor: Colors.white),
+//    Theme.of(context).textTheme.apply(
+//          bodyColor: Colors.pink,
+//          displayColor: Colors.pink,
+//        ),
 //    textTheme: TextTheme(
 //      bodyText1: TextStyle(color: Colors.white),
 //      bodyText2: TextStyle(color: Colors.white),

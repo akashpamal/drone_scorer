@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:gsheets/gsheets.dart';
 import 'dart:async';
 import 'package:drone_scorer/game.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SheetManager extends StatelessWidget {
 // your google auth credentials
@@ -22,9 +23,12 @@ class SheetManager extends StatelessWidget {
 
   // your spreadsheet id
   static const _spreadsheetId = '1pEOQ8EiNgTC6jYq3vmM2ZNi8Q1pDfMafXbaoCEZ4N9M';
+  static const _verificationSpreadsheetId = '139UhLfqscoV8Hvq8tAl7pAPyFviKCDDrqxw6fotejG4';
 
   GSheets gSheets;
   Worksheet sheet;
+  Worksheet verificationSheet;
+  String localAuthCode;
 
   SheetManager() {
     this._initialize();
@@ -32,6 +36,7 @@ class SheetManager extends StatelessWidget {
 
   void _initialize() async {
     await this._connect();
+    await this.updateLocalAuthCodeFromDisk();
   }
 
   void _connect() async {
@@ -40,16 +45,39 @@ class SheetManager extends StatelessWidget {
 
     // fetch spreadsheet by its id
     final ss = await gsheets.spreadsheet(_spreadsheetId);
+    final ss1 = await gsheets.spreadsheet(_verificationSpreadsheetId);
 
     // get worksheet by its title
     this.sheet = await ss.worksheetByTitle('Scores');
+    this.verificationSheet = await ss1.worksheetByTitle('AuthCode');
 
     // create worksheet if it does not exist yet
     this.sheet ??= await ss.addWorksheet('Scores');
+    this.verificationSheet ??= await ss1.addWorksheet('AuthCode');
+  }
+
+  void setLocalAuthCode(String authCode) async {
+    print('setting authCode to $authCode');
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('authCode', authCode);
+    this.localAuthCode = authCode;
+  }
+
+  void updateLocalAuthCodeFromDisk() async {
+    final prefs = await SharedPreferences.getInstance();
+    this.localAuthCode = await prefs.getString('authCode') ?? '';
+    print('local authCode updated from disk: ${this.localAuthCode}');
   }
 
   void startEntry(Game game) async {
     List<List<String>> allRows = await this.sheet.values.allRows();
+
+    Cell verificationCell = await this.verificationSheet.cells.cell(row: 1, column: 1);
+    String remoteAuthCode = verificationCell.value;
+
+    if (remoteAuthCode != this.localAuthCode) {
+      return;
+    }
 
     int indexOfNewRow = allRows.length;
     indexOfNewRow++;
@@ -77,6 +105,10 @@ class SheetManager extends StatelessWidget {
         break;
       }
     }
+    if (indexOfNewRow == -1) { // the row wasn't there, which means this device doesn't have the verification code
+      return;
+    }
+
     indexOfNewRow += 1;
     print('index of active game is $indexOfNewRow');
 
