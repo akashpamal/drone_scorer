@@ -18,28 +18,6 @@ void main() {
       home: GameInfoScreen(sheetManager),
 //      theme: ThemeData(),
 //      darkTheme: ThemeData.dark(),
-      theme: theme1(),
     ),
-  );
-}
-
-ThemeData theme1() {
-  return ThemeData(
-    appBarTheme: AppBarTheme(color: Colors.black),
-    scaffoldBackgroundColor: Colors.black,
-    primaryColor: Colors.blue,
-    hintColor: Colors.blue,
-    textTheme: TextTheme(
-      bodyText1: TextStyle(),
-      bodyText2: TextStyle(),
-    ).apply(bodyColor: Colors.white, displayColor: Colors.white),
-//    Theme.of(context).textTheme.apply(
-//          bodyColor: Colors.pink,
-//          displayColor: Colors.pink,
-//        ),
-//    textTheme: TextTheme(
-//      bodyText1: TextStyle(color: Colors.white),
-//      bodyText2: TextStyle(color: Colors.white),
-//    ),
   );
 }
